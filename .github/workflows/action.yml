@@ -10,10 +10,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
       - uses: actions/checkout@v2
-      - name: Send todo list to me
-        run: node index.js
+      - name: Check env
+        run: echo "TEMPLATE_ID is ${{ secrets.TEMPLATE_ID}}"
+      - name: Send todo list to me with Node.js ${{ matrix.node-version }}
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+        run: |
+          npm install
+          node index.js
         env:
           TOKEN: ${{ secrets.TOKEN }}
           TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
