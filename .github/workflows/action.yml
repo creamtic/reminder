@@ -3,7 +3,7 @@ name: Cron Todo List
 on:
   # 매일 8~22시 사이 10분마다.
   schedule:
-    - cron: "*/10 8-22 * * *"
+    - cron: "*/10 7-22 * * *"
 
 jobs:
   build:
