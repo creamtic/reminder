@@ -1,0 +1,16 @@
+name: Cron Todo List
+
+on:
+  # 매일 8~22시 사이 10분마다.
+  schedule: */10 8-22 * * *
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Send todo list to me
+        run: node index.js
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
