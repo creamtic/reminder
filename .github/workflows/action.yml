@@ -3,7 +3,7 @@ name: Cron Todo List
 on:
   # 매일 8~22시 사이 10분마다.
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/30 8-24 * * *"
 
 jobs:
   build:
@@ -15,9 +15,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Npm Install
+      - name: npm install
         run: npm install
-      - name: Run Application
+      - name: run application
         run: npm start
         env:
           TOKEN: ${{ secrets.TOKEN }}

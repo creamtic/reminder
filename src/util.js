@@ -1,6 +1,6 @@
 module.exports = {
   formatDate(date) {
-    let p = new Intl.DateTimeFormat("en", {
+    let p = new Intl.DateTimeFormat("ko", {
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
