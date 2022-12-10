@@ -15,7 +15,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Run application
+      - name: Npm Install
+        run: npm install
+      - name: Run Application
         run: npm start
         env:
           TOKEN: ${{ secrets.TOKEN }}
