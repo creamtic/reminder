@@ -1,9 +1,9 @@
 name: Cron Todo List
 
 on:
-  # 매일 8~22시 사이 10분마다.
+  # 매일 30분마다.
   schedule:
-    - cron: "*/30 8-24 * * *"
+    - cron: "*/30 * * * *"
 
 jobs:
   build:
