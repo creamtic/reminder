@@ -3,7 +3,7 @@ name: Cron Todo List
 on:
   # 매일 8~22시 사이 10분마다.
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   build:
@@ -11,13 +11,12 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [14.x]
 
     steps:
       - uses: actions/checkout@v2
-      - name: Check env
-        run: echo "TEMPLATE_ID is ${{ secrets.TEMPLATE_ID}}"
+      - name: Run application
+        run: npm start
         env:
           TOKEN: ${{ secrets.TOKEN }}
           TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
