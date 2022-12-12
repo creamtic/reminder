@@ -3,7 +3,7 @@ name: Cron Todo List
 on:
   # 매일 30분마다.
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/60 * * * *"
 
 jobs:
   build:
